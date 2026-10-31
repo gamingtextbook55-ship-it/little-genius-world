@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff4d8">
+<meta name="description" content="A playful bilingual Hindi and English learning game for preschool children ages 3 to 5.">
+<title>Little Genius World | Play & Learn</title>
+<style>
+:root{--ink:#27324a;--muted:#6e7890;--cream:#fff8e9;--pink:#ff8fa3;--yellow:#ffd166;--blue:#8ed8ff;--green:#9ce3bd;--purple:#c7b4ff;--shadow:0 12px 0 rgba(57,67,91,.09),0 18px 35px rgba(57,67,91,.10)}
+*{box-sizing:border-box}html{min-height:100%;background:#fff8e9}body{margin:0;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;background:radial-gradient(circle at 10% 5%,#fff 0 8%,transparent 28%),linear-gradient(145deg,#fff8e9,#f0f8ff 65%,#f7efff);min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;color:inherit}button:focus-visible{outline:4px solid #344fbd;outline-offset:4px}.app{max-width:1120px;margin:auto;padding:20px 22px 50px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:54px;height:54px;border-radius:18px;background:linear-gradient(145deg,#ffcf69,#ff9e9e);display:grid;place-items:center;font-size:30px;box-shadow:inset 0 -5px 0 #e98d76,0 6px 0 #f0d7b4;transform:rotate(-4deg)}.brand h1{font-size:clamp(20px,4vw,28px);line-height:1;margin:0}.brand small{display:block;color:var(--muted);font-weight:700;margin-top:5px}.header-actions{display:flex;gap:9px;align-items:center}.pill{border-radius:999px;padding:10px 15px;background:#fff;box-shadow:0 4px 0 #e7e6e2;font-weight:800}.pill.active{background:#394e9b;color:white;box-shadow:0 4px 0 #263775}.sound{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 0 #e7e6e2;font-size:20px}
+.hero{position:relative;overflow:hidden;border-radius:30px;padding:clamp(24px,5vw,48px);background:linear-gradient(115deg,#b9eaff,#d9d0ff 55%,#ffd9df);box-shadow:var(--shadow);display:grid;grid-template-columns:1.25fr .75fr;align-items:center;min-height:270px}.hero:after{content:"";position:absolute;width:250px;height:250px;border-radius:50%;background:#fff8;right:-50px;top:-90px}.hero h2{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:0 0 12px;max-width:600px}.hero p{font-size:clamp(15px,2vw,18px);font-weight:700;color:#52617e;margin:0 0 22px}.primary{background:#ff8b70;color:#fff;padding:14px 22px;border-radius:18px;font-weight:900;font-size:17px;box-shadow:0 6px 0 #dc6c59,0 10px 18px #c66b5940}.primary:active,.tile:active,.answer:active{transform:translateY(3px);box-shadow:0 3px 0 #0002}.hero-art{z-index:1;display:flex;justify-content:center;align-items:center;gap:8px;font-size:clamp(45px,8vw,82px);filter:drop-shadow(0 9px 0 #7b7b9b30)}.hero-art span:nth-child(1){transform:rotate(-12deg) translateY(14px)}.hero-art span:nth-child(2){font-size:1.35em;transform:translateY(-14px)}.hero-art span:nth-child(3){transform:rotate(12deg) translateY(15px)}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:32px 2px 15px}.section-head h3{font-size:24px;margin:0}.section-head p{margin:0;color:var(--muted);font-weight:700;font-size:14px}.worlds{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.tile{min-height:175px;border-radius:24px;padding:18px 12px 16px;text-align:center;box-shadow:0 7px 0 #00000012,0 12px 24px #3331;transition:.15s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.tile:hover{transform:translateY(-4px)}.tile .emoji{font-size:48px;filter:drop-shadow(0 5px 0 #0002)}.tile strong{font-size:17px}.tile small{font-size:12px;font-weight:800;opacity:.75}.tile.abc{background:#ffd6df}.tile.numbers{background:#ffe49b}.tile.colors{background:#c9edff}.tile.shapes{background:#d8d0ff}.tile.animals{background:#c9f0d8}
+.footer-note{text-align:center;margin:24px auto 0;color:#7c8496;font-size:13px;font-weight:700}
+.game{display:none;margin-top:24px;background:#fff;border-radius:30px;padding:clamp(18px,4vw,34px);box-shadow:var(--shadow);min-height:390px}.game.show{display:block}.game-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.back{background:#f1f3f8;border-radius:14px;padding:10px 15px;font-weight:900}.progress{height:12px;background:#edf0f7;border-radius:20px;overflow:hidden;flex:1;max-width:300px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#71d6ad,#72c9ff);border-radius:20px;transition:width .3s}.score{font-weight:900;color:#e59b23}.prompt{text-align:center;margin:25px 0 14px}.prompt h2{font-size:clamp(25px,4vw,36px);margin:0 0 7px}.prompt p{margin:0;color:var(--muted);font-weight:700}.question-art{min-height:145px;display:grid;place-items:center;font-size:clamp(70px,12vw,110px);line-height:1;filter:drop-shadow(0 8px 0 #00000015);margin:10px auto 18px}.question-art.letter{font-size:clamp(95px,17vw,150px);font-weight:1000;color:#5669c9;text-shadow:4px 5px 0 #d6dafa}.answers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:720px;margin:0 auto}.answer{background:#eef5ff;border-radius:20px;padding:17px 10px;min-height:74px;font-size:clamp(17px,3vw,22px);font-weight:900;box-shadow:0 5px 0 #d9e3f2;transition:.12s}.answer:nth-child(2){background:#fff0d2;box-shadow:0 5px 0 #f0dfb9}.answer:nth-child(3){background:#e5f8ed;box-shadow:0 5px 0 #ccebd9}.answer.correct{background:#a8ecc4;box-shadow:0 5px 0 #6cc08e}.answer.wrong{background:#ffd3d3;box-shadow:0 5px 0 #efa6a6}.feedback{text-align:center;min-height:34px;font-weight:900;font-size:20px;margin:17px 0 4px;color:#299b69}.next-row{text-align:center;margin-top:10px}.next{background:#6b78d6;color:white;border-radius:16px;padding:12px 24px;font-weight:900;box-shadow:0 5px 0 #4a56ad;display:none}.next.show{display:inline-block}
+.lesson-controls{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}.secondary{background:#f0f2fa;padding:10px 15px;border-radius:14px;font-weight:800}
+@media(max-width:850px){.worlds{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr .65fr}.tile{min-height:150px}}
+@media(max-width:560px){.app{padding:13px 13px 35px}.brand small{font-size:11px}.logo{width:45px;height:45px}.header-actions{gap:6px}.pill{padding:9px 11px;font-size:13px}.hero{grid-template-columns:1fr;padding:25px 22px;min-height:300px}.hero-art{margin-top:8px}.worlds{grid-template-columns:repeat(2,1fr);gap:11px}.tile{min-height:142px}.section-head{align-items:start;flex-direction:column;gap:4px}.answers{grid-template-columns:1fr;max-width:420px}.answer{min-height:62px}.game{padding:17px}.progress{max-width:110px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><div class="logo" aria-hidden="true">🌟</div><div><h1>Little Genius World</h1><small>खेलो और सीखो · Play & Learn</small></div></div>
+  <div class="header-actions"><button class="pill active" id="englishBtn" aria-pressed="true">EN</button><button class="pill" id="hindiBtn" aria-pressed="false">हिंदी</button><button class="sound" id="soundBtn" aria-label="Toggle voice instructions">🔊</button></div>
+</header>
+<main id="home">
+  <section class="hero">
+    <div><h2 id="heroTitle">Big fun for little learners!</h2><p id="heroText">छोटे बच्चों के लिए सीखने का मज़ेदार संसार। Explore letters, numbers, colours, shapes and animals.</p><button class="primary" id="startBtn">Let's Play! ▶</button></div>
+    <div class="hero-art" aria-hidden="true"><span>🦊</span><span>🧸</span><span>🐰</span></div>
+  </section>
+  <div class="section-head"><h3 id="worldTitle">Choose your learning world</h3><p id="worldSub">अपनी पसंद का खेल चुनो!</p></div>
+  <section class="worlds" aria-label="Learning games">
+    <button class="tile abc" data-world="abc"><span class="emoji">🔤</span><strong>ABC Adventure</strong><small>अक्षर सीखें · Letters</small></button>
+    <button class="tile numbers" data-world="numbers"><span class="emoji">🔢</span><strong>Number Garden</strong><small>गिनती · Counting</small></button>
+    <button class="tile colors" data-world="colors"><span class="emoji">🎨</span><strong>Colour Party</strong><small>रंग · Colours</small></button>
+    <button class="tile shapes" data-world="shapes"><span class="emoji">🔷</span><strong>Shape Explorer</strong><small>आकार · Shapes</small></button>
+    <button class="tile animals" data-world="animals"><span class="emoji">🦁</span><strong>Animal Kingdom</strong><small>जानवर · Animals</small></button>
+  </section>
+  <p class="footer-note">Made for curious little minds · नन्हे बच्चों के लिए प्यार से बनाया गया</p>
+</main>
+<section class="game" id="game" aria-live="polite">
+  <div class="game-top"><button class="back" id="backBtn">← Home</button><div class="progress" aria-label="Game progress"><span id="progressBar"></span></div><div class="score" id="score">⭐ 0</div></div>
+  <div class="prompt"><h2 id="question">Find the letter A</h2><p id="hint">सही जवाब चुनो!</p></div>
+  <div class="question-art" id="art" aria-hidden="true">A</div>
+  <div class="answers" id="answers"></div>
+  <div class="feedback" id="feedback" role="status"></div>
+  <div class="next-row"><button class="next" id="nextBtn">Next ▶</button></div>
+  <div class="lesson-controls"><button class="secondary" id="speakBtn">🔊 Hear it / सुनो</button><button class="secondary" id="repeatBtn">↻ Start again / फिर से</button></div>
+</section>
+</div>
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+let language='en', voiceOn=true, world='abc', index=0, score=0, locked=false, current=null;
+const words = {
+ abc:[
+  ['A','Apple','सेब','🍎'],['B','Ball','गेंद','⚽'],['C','Cat','बिल्ली','🐱'],['D','Dog','कुत्ता','🐶'],['E','Elephant','हाथी','🐘'],['F','Fish','मछली','🐟'],['G','Grapes','अंगूर','🍇'],['H','House','घर','🏠'],['I','Ice cream','आइसक्रीम','🍦'],['J','Juice','जूस','🧃'],['K','Kite','पतंग','🪁'],['L','Lion','शेर','🦁'],['M','Mango','आम','🥭'],['N','Nest','घोंसला','🪺'],['O','Orange','संतरा','🍊'],['P','Parrot','तोता','🦜'],['Q','Queen','रानी','👑'],['R','Rabbit','खरगोश','🐰'],['S','Sun','सूरज','☀️'],['T','Tiger','बाघ','🐯'],['U','Umbrella','छाता','☂️'],['V','Van','वैन','🚐'],['W','Whale','व्हेल','🐳'],['X','Xylophone','ज़ायलोफोन','🎼'],['Y','Yo-yo','यो-यो','🪀'],['Z','Zebra','ज़ेबरा','🦓']],
+ numbers:Array.from({length:20},(_,i)=>[String(i+1),['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty'][i],['एक','दो','तीन','चार','पाँच','छह','सात','आठ','नौ','दस','ग्यारह','बारह','तेरह','चौदह','पंद्रह','सोलह','सत्रह','अठारह','उन्नीस','बीस'][i],['🍓','⭐','🐥','🦋','🍎','🐠','🌼','🍪','🎈','🍉'][i%10]]),
+ colors:[['Red','लाल','❤️'],['Blue','नीला','💙'],['Yellow','पीला','💛'],['Green','हरा','💚'],['Orange','नारंगी','🧡'],['Purple','बैंगनी','💜'],['Pink','गुलाबी','🩷'],['Brown','भूरा','🤎'],['Black','काला','🖤'],['White','सफेद','🤍']],
+ shapes:[['Circle','गोला','🔴'],['Square','वर्ग','🟦'],['Triangle','त्रिकोण','🔺'],['Rectangle','आयत','🟧'],['Star','तारा','⭐'],['Heart','दिल','❤️'],['Oval','अंडाकार','🥚'],['Diamond','हीरा आकार','🔶']],
+ animals:[['Lion','शेर','🦁'],['Elephant','हाथी','🐘'],['Monkey','बंदर','🐵'],['Rabbit','खरगोश','🐰'],['Cow','गाय','🐮'],['Dog','कुत्ता','🐶'],['Cat','बिल्ली','🐱'],['Duck','बत्तख','🦆'],['Giraffe','जिराफ़','🦒'],['Tiger','बाघ','🐯'],['Frog','मेंढक','🐸'],['Bear','भालू','🐻']]
+};
+const labels={en:{hero:'Big fun for little learners!',desc:'A happy place to learn through play. Explore letters, numbers, colours, shapes and animals.',world:'Choose your learning world',sub:'Pick a game to begin!',find:'Find the right answer',correct:'Amazing! You got it!',try:'Good try! Let’s learn together.',next:'Next ▶',home:'← Home',hint:'Tap the correct answer!',done:'Wonderful work! You are a little genius!',again:'Play again',start:'Let’s Play! ▶'},hi:{hero:'नन्हे बच्चों के लिए ढेर सारी मस्ती!',desc:'खेल-खेल में सीखने की प्यारी दुनिया। अक्षर, गिनती, रंग, आकार और जानवर सीखें।',world:'अपनी सीखने की दुनिया चुनो',sub:'शुरू करने के लिए खेल चुनो!',find:'सही जवाब ढूँढो',correct:'वाह! बिल्कुल सही!',try:'अच्छी कोशिश! चलो साथ में सीखते हैं।',next:'आगे चलें ▶',home:'← घर',hint:'सही जवाब पर टैप करो!',done:'शानदार! तुम छोटे जीनियस हो!',again:'फिर से खेलें',start:'चलो खेलें! ▶'}};
+const t=k=>labels[language][k];
+function setLanguage(l){language=l;$('englishBtn').classList.toggle('active',l==='en');$('hindiBtn').classList.toggle('active',l==='hi');$('englishBtn').setAttribute('aria-pressed',l==='en');$('hindiBtn').setAttribute('aria-pressed',l==='hi');$('heroTitle').textContent=t('hero');$('heroText').textContent=t('desc');$('worldTitle').textContent=t('world');$('worldSub').textContent=t('sub');$('startBtn').textContent=t('start');$('backBtn').textContent=t('home');$('hint').textContent=t('hint');$('nextBtn').textContent=t('next');if(current)renderQuestion();}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function start(w){world=w;index=0;score=0;locked=false;$('home').style.display='none';$('game').classList.add('show');$('score').textContent='⭐ 0';renderQuestion();window.scrollTo({top:0,behavior:'smooth'});}
+function titleFor(item){if(world==='abc')return language==='en'?`What begins with ${item[0]}?`:`${item[0]} से कौन-सा शब्द शुरू होता है?`;if(world==='numbers')return language==='en'?`Find number ${item[0]}`:`संख्या ${item[0]} ढूँढो`;if(world==='colors')return language==='en'?`Find ${item[0]} colour`:`${item[1]} रंग ढूँढो`;if(world==='shapes')return language==='en'?`Find the ${item[0]}`:`${item[1]} ढूँढो`;return language==='en'?`Where is the ${item[0]}?`:`${item[1]} कहाँ है?`;}
+function getName(item){if(world==='abc')return language==='en'?item[1]:item[2];if(world==='numbers')return language==='en'?item[1]:item[2];return language==='en'?item[0]:item[1];}
+function artFor(item){if(world==='abc')return item[3];if(world==='numbers')return Array.from({length:Math.min(Number(item[0]),10)},()=> '⭐').join(' ');return item[item.length-1];}
+function optionsFor(item){const pool=words[world].filter(x=>x!==item);return shuffle([item,...shuffle(pool).slice(0,2)]);}
+function renderQuestion(){locked=false;$('feedback').textContent='';$('nextBtn').classList.remove('show');if(index>=words[world].length){finish();return;}current=words[world][index];$('question').textContent=titleFor(current);$('art').textContent=artFor(current);$('art').className='question-art'+(world==='abc'?' letter':'');$('progressBar').style.width=(index/words[world].length*100)+'%';$('answers').innerHTML='';optionsFor(current).forEach(item=>{const b=document.createElement('button');b.className='answer';b.textContent=getName(item);b.addEventListener('click',()=>choose(b,item));$('answers').appendChild(b);});if(voiceOn) speakPrompt();}
+function choose(button,item){if(locked)return;locked=true;const correct=item===current;[...$('answers').children].forEach(b=>{if(b.textContent===getName(current))b.classList.add('correct');else if(b===button)b.classList.add('wrong');b.disabled=true;});if(correct){score++;$('score').textContent='⭐ '+score;$('feedback').textContent='🎉 '+t('correct');}else{$('feedback').textContent='💛 '+t('try');} $('nextBtn').classList.add('show');if(voiceOn)speak(correct?t('correct'):getName(current));}
+function finish(){$('question').textContent=t('done');$('art').textContent='🏆';$('art').className='question-art';$('answers').innerHTML='';$('feedback').textContent=`⭐ ${score} / ${words[world].length}`;$('progressBar').style.width='100%';$('nextBtn').textContent=t('again');$('nextBtn').classList.add('show');$('nextBtn').onclick=()=>{index=0;score=0;$('nextBtn').onclick=next;renderQuestion();};if(voiceOn)speak(t('done'));}
+function next(){index++;renderQuestion();}
+function speak(text){if(!voiceOn||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=language==='hi'?'hi-IN':'en-IN';u.rate=.82;u.pitch=1.12;window.speechSynthesis.speak(u);}
+function speakPrompt(){const item=current;let s=titleFor(item)+' '+getName(item);if(world==='abc')s+=' '+item[0]+' for '+item[1];speak(s);}
+$('englishBtn').onclick=()=>setLanguage('en');$('hindiBtn').onclick=()=>setLanguage('hi');$('soundBtn').onclick=()=>{voiceOn=!voiceOn;$('soundBtn').textContent=voiceOn?'🔊':'🔇';if(!voiceOn&&'speechSynthesis'in window)window.speechSynthesis.cancel();};$('startBtn').onclick=()=>start('abc');document.querySelectorAll('[data-world]').forEach(b=>b.addEventListener('click',()=>start(b.dataset.world)));$('backBtn').onclick=()=>{$('game').classList.remove('show');$('home').style.display='block';if('speechSynthesis'in window)window.speechSynthesis.cancel();};$('nextBtn').onclick=next;$('speakBtn').onclick=()=>{if(current)speak(titleFor(current)+' '+getName(current));};$('repeatBtn').onclick=()=>{index=0;score=0;$('score').textContent='⭐ 0';renderQuestion();};
+setLanguage('en');
+})();
+</script>
+</body>
+</html>
